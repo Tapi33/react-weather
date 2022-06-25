@@ -7,10 +7,21 @@ interface Props {
 }
 
 const options = [
-    {value: 'chocolate', label: 'Chocolate'},
-    {value: 'strawberry', label: 'Strawberry'},
-    {value: 'vanilla', label: 'Vanilla'}
+    {value: 'city-1', label: 'Минск'},
+    {value: 'city-2', label: 'Молодечно'},
+    {value: 'city-3', label: 'Вильнус'}
 ]
+
+const customStyles = {
+    control:(styles: any)=> ({
+        ...styles,
+        backgroundColor: '#4793FF33',
+        width: '194px',
+        borderRadius: '10px',
+        height: '37px',
+        zIndex: 100,
+    }),
+}
 
 export const Header = (props: Props) => {
     return (
@@ -21,7 +32,10 @@ export const Header = (props: Props) => {
             </div>
             <div className={s.wrapper}>
                 <div className={s.change_theme}><GlobalSvgSelector id={'change-theme'}/></div>
-                <Select options={options}/>
+                <Select
+                    defaultValue={options[0]}
+                    styles={customStyles}
+                    options={options}/>
             </div>
         </header>
     );
