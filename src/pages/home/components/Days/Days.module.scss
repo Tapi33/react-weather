@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background: $lite-background;
+  background: var(#{--components-background-default});
   border-radius: 0 0 $border-radius $border-radius;
   box-shadow: $box-shadow;
   padding: 20px;
@@ -16,17 +16,18 @@
   flex-direction: column;
   width: 129px;
   height: 200px;
-  background: rgba(71, 147, 255, 0.2);
+  background: var(#{--card-background-default});
   border-radius: 10px;
   padding: 10px;
   transition: 0.3s;
   cursor: pointer;
 }
 .cart:hover{
-  box-shadow: $box-shadow;
+  box-shadow: var(#{--card-box-shadow-default});
 }
 
 .day {
+  color:var(#{--text-color-default});
   font-weight: 500;
   margin-bottom: 7px;
   font-size: 18px;
@@ -43,6 +44,7 @@
 }
 
 .temp_day {
+  color:var(#{--text-color-default});
   font-size: 18px;
 }
 
@@ -71,8 +73,8 @@
   align-items: center;
   width: 142px;
   height: 35px;
-  color: $lite-color;
-  background: $lite-background;
+  color: var(#{--text-color-default});
+  background: var(#{--components-background-default});
   box-shadow: $box-shadow;
   border-radius: 5px;
   font-size: 18px;

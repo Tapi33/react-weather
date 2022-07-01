@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 @import "../../pages/home/components/ThisDayInfo/ThisDayInfo.module";
 
-.popup{
+.popup {
   position: absolute;
   top: 25%;
   left: calc(50% - 325px);
@@ -14,29 +14,34 @@
   box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
   border-radius: 20px;
 }
+
 .this_time,
-.this_city{
+.this_city {
   font-size: 15px;
   color: $base_color;
 }
-.blur{
+
+.blur {
   position: absolute;
-  z-index:999;
-  width:100%;
+  z-index: 999;
+  width: 100%;
   height: 100vh;
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
 }
-.popup_exit{
+
+.popup_exit {
   position: absolute;
   top: 20px;
   right: 20px;
   cursor: pointer;
   transition: 0.3s;
 }
-.popup_exit:hover{
+
+.popup_exit:hover {
   transform: rotate(360grad);
 }
-.this_day{
+
+.this_day {
   width: 194px;
   height: 216px;
   margin: 42px;
@@ -44,27 +49,31 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.top_block{
+
+.top_block {
   flex-direction: column;
   justify-content: start;
   align-items: start;
 
-  svg{
+  svg {
     width: 53px;
     height: 53px;
   }
 }
-.this_temp{
+
+.this_temp {
   color: $primary-color;
   font-style: normal;
   font-weight: 500;
   font-size: 60px;
   line-height: 73px;
 }
-.this_day_name{
+
+.this_day_name {
   font-size: 25px;
   margin-bottom: 7px;
 }
-.this_day_info_items{
+
+.this_day_info_items {
   margin: 42px;
 }
