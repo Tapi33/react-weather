@@ -1,7 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import s from "./Header.module.scss";
 import Select from 'react-select'
 import {GlobalSvgSelector} from "../../assets/icons/global/GlobalSvgSelector";
+import {useTheme} from "../../hooks/useTheme";
+import {Theme} from "../../context/ThemeContext";
 
 interface Props {
 }
@@ -12,38 +14,29 @@ const options = [
     {value: 'city-3', label: 'Вильнус'}
 ]
 
-const customStyles = {
-    control:(styles: any)=> ({
-        ...styles,
-        backgroundColor: 0 ? '#4f4f4f' :'#4793FF33',
-        width: '194px',
-        borderRadius: '10px',
-        height: '37px',
-        zIndex: 100,
-        border:'none'
-    }),
-    singleValue:(styles:any)=>({
-        ...styles,
-        color: 0 ? '#fff' : '#000'
-    })
-}
-
 
 export const Header = (props: Props) => {
+    const theme = useTheme();
 
-    const [theme, setTheme] = useState('light');
+    const customStyles = {
+        control:(styles: any)=> ({
+            ...styles,
+            backgroundColor: theme.theme === Theme.DARK ? '#4f4f4f' :'#4793FF33',
+            width: '194px',
+            borderRadius: '10px',
+            height: '37px',
+            zIndex: 100,
+            border:'none'
+        }),
+        singleValue:(styles:any)=>({
+            ...styles,
+            color: theme.theme === Theme.DARK ? '#fff' : '#000',
+        })
+    }
 
     const changeTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
-        console.log(theme)
+        theme.changeTheme(theme.theme ===  Theme.LIGHT ?  Theme.DARK:Theme.LIGHT)
     }
-    useEffect(()=>{
-        const themeValue = ['body-background','components-background','card-background','card-box-shadow','text-color']
-        const root = document.querySelector(':root') as HTMLElement;
-        themeValue.forEach((item)=>{
-            root.style.setProperty(`--${item}-default`, `var(--${item}-${theme})`)
-        })
-    }, [theme])
     return (
         <header className={s.header}>
             <div className={s.wrapper}>
